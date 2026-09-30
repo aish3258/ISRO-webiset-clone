@@ -1,0 +1,1099 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  color-scheme: light;
+  --isro-navy: #06164b;
+  --isro-blue: #075b9c;
+  --isro-blue-bright: #0874ba;
+  --isro-gold: #ffe600;
+  --isro-ink: #14223b;
+  --isro-muted: #67758a;
+  --isro-line: #e1e7ef;
+  --isro-paper: #f4f7fb;
+  --isro-white: #fff;
+  --isro-radius: 14px;
+  --isro-shadow: 0 14px 35px rgb(8 26 59 / 10%);
+}
+
+/* All selectors are scoped to .isro-home so the component can sit below a team header. */
+.isro-home,
+.isro-home * {
+  box-sizing: border-box;
+}
+
+.isro-home {
+  overflow: hidden;
+  color: var(--isro-ink);
+  background: var(--isro-white);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.isro-home img {
+  display: block;
+  max-width: 100%;
+}
+
+.isro-home a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.isro-home button {
+  color: inherit;
+  font: inherit;
+}
+
+.isro-home :focus-visible {
+  outline: 3px solid #fb9f28;
+  outline-offset: 4px;
+}
+
+.isro-ticker {
+  position: relative;
+  z-index: 1;
+  color: var(--isro-gold);
+  background: var(--isro-navy);
+}
+
+.isro-ticker__inner {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: min(1240px, calc(100% - 48px));
+  min-height: 62px;
+  margin: 0 auto;
+}
+
+.isro-ticker__label {
+  flex: 0 0 auto;
+  color: var(--isro-white);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.isro-ticker__link {
+  flex: 1 1 auto;
+  overflow: hidden;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.isro-ticker__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.isro-ticker__controls,
+.isro-scroll-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.isro-ticker__count {
+  min-width: 46px;
+  color: rgb(255 255 255 / 65%);
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.isro-icon-button {
+  display: inline-grid;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 50%;
+  color: var(--isro-white);
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.45rem;
+  line-height: 1;
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.isro-icon-button:hover {
+  transform: translateY(-1px);
+  border-color: var(--isro-gold);
+  color: var(--isro-navy);
+  background: var(--isro-gold);
+}
+
+.isro-icon-button--light {
+  border-color: rgb(255 255 255 / 28%);
+  color: var(--isro-white);
+  background: rgb(4 18 57 / 34%);
+}
+
+.isro-hero {
+  position: relative;
+  min-height: clamp(420px, 49vw, 660px);
+  overflow: hidden;
+  color: var(--isro-white);
+  background: #081944;
+}
+
+.isro-hero__slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-items: center;
+  min-height: inherit;
+  isolation: isolate;
+  opacity: 0;
+  transition: opacity 650ms ease;
+}
+
+.isro-hero__slide[hidden] {
+  display: none;
+}
+
+.isro-hero__slide--active {
+  position: relative;
+  opacity: 1;
+}
+
+.isro-hero__image,
+.isro-hero__shade {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.isro-hero__image {
+  object-fit: cover;
+  object-position: center 44%;
+  animation: isro-hero-zoom 18s ease-in-out infinite alternate;
+}
+
+.isro-hero__shade {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgb(4 15 48 / 91%) 0%, rgb(4 15 48 / 68%) 43%, rgb(4 15 48 / 16%) 100%),
+    linear-gradient(0deg, rgb(4 15 48 / 49%), transparent 36%);
+}
+
+.isro-hero__content {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 78px 0 110px;
+  animation: isro-rise 550ms ease both;
+}
+
+.isro-eyebrow {
+  margin: 0 0 12px;
+  color: var(--isro-gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.isro-eyebrow--blue {
+  color: var(--isro-blue-bright);
+}
+
+.isro-hero h1,
+.isro-hero h2 {
+  max-width: 780px;
+  margin: 0;
+  font-family: Manrope, "DM Sans", sans-serif;
+  font-size: clamp(2.7rem, 7vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.03;
+  text-wrap: balance;
+}
+
+.isro-hero h1 span {
+  color: var(--isro-gold);
+}
+
+.isro-hero h2 {
+  font-size: clamp(2.5rem, 6vw, 5.25rem);
+}
+
+.isro-hero__summary {
+  max-width: 535px;
+  margin: 21px 0 28px;
+  color: rgb(255 255 255 / 86%);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+}
+
+.isro-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.isro-button:hover {
+  transform: translateY(-2px);
+}
+
+.isro-button--gold {
+  color: var(--isro-navy) !important;
+  background: var(--isro-gold);
+}
+
+.isro-button--gold:hover {
+  background: var(--isro-white);
+}
+
+.isro-button--outline {
+  border-color: rgb(255 255 255 / 48%);
+  color: var(--isro-white) !important;
+  background: transparent;
+}
+
+.isro-button--outline:hover {
+  border-color: var(--isro-gold);
+  color: var(--isro-navy) !important;
+  background: var(--isro-gold);
+}
+
+.isro-hero__caption {
+  position: absolute;
+  right: max(24px, calc((100vw - 1240px) / 2));
+  bottom: 24px;
+  margin: 0;
+  color: rgb(255 255 255 / 70%);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.isro-hero__controls {
+  position: absolute;
+  right: max(24px, calc((100vw - 1240px) / 2));
+  bottom: 69px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.isro-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.isro-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 99px;
+  background: rgb(255 255 255 / 48%);
+  cursor: pointer;
+  transition: width 180ms ease, background 180ms ease;
+}
+
+.isro-dot[aria-current="true"] {
+  width: 27px;
+  background: var(--isro-gold);
+}
+
+.isro-shortcuts {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: min(1080px, calc(100% - 48px));
+  margin: -31px auto 0;
+  border-radius: 8px;
+  background: var(--isro-blue);
+  box-shadow: var(--isro-shadow);
+}
+
+.isro-shortcut {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 75px;
+  padding: 0 22px;
+  color: var(--isro-white) !important;
+  font-size: 0.84rem;
+  font-weight: 700;
+  transition: background 180ms ease;
+}
+
+.isro-shortcut:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.isro-shortcut:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.isro-shortcut + .isro-shortcut {
+  border-left: 1px solid rgb(255 255 255 / 18%);
+}
+
+.isro-shortcut:hover {
+  background: #064e87;
+}
+
+.isro-shortcut__icon {
+  display: inline-grid;
+  width: 33px;
+  height: 33px;
+  flex: 0 0 33px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 52%);
+  border-radius: 50%;
+  color: var(--isro-gold);
+  font-size: 1.1rem;
+}
+
+.isro-shortcut__arrow {
+  margin-left: auto;
+  color: rgb(255 255 255 / 64%);
+}
+
+.isro-section {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 96px 0;
+}
+
+.isro-section__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.isro-section__heading h2,
+.isro-contact h2 {
+  margin: 0;
+  color: var(--isro-ink);
+  font-family: Manrope, "DM Sans", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+}
+
+.isro-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--isro-blue) !important;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.isro-text-link span {
+  transition: transform 180ms ease;
+}
+
+.isro-text-link:hover span {
+  transform: translateX(4px);
+}
+
+.isro-news {
+  padding-bottom: 88px;
+}
+
+.isro-news__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(350px, 0.94fr);
+  gap: 28px;
+}
+
+.isro-news-feature {
+  overflow: hidden;
+  border: 1px solid var(--isro-line);
+  border-radius: var(--isro-radius);
+  background: var(--isro-white);
+  box-shadow: 0 9px 25px rgb(8 26 59 / 5%);
+}
+
+.isro-news-feature__image-wrap {
+  position: relative;
+  height: 285px;
+  overflow: hidden;
+  background: var(--isro-paper);
+}
+
+.isro-news-feature__image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.isro-news-feature:hover .isro-news-feature__image-wrap img {
+  transform: scale(1.035);
+}
+
+.isro-news-feature__tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  padding: 7px 11px;
+  border-radius: 3px;
+  color: var(--isro-navy);
+  background: var(--isro-gold);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.isro-news-feature__copy {
+  padding: 24px 25px 27px;
+}
+
+.isro-date {
+  margin: 0 0 11px;
+  color: var(--isro-blue-bright);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.isro-news-feature h3 {
+  margin: 0;
+  color: var(--isro-ink);
+  font-family: Manrope, "DM Sans", sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.28;
+}
+
+.isro-news-feature__copy > p:not(.isro-date) {
+  margin: 13px 0 17px;
+  color: var(--isro-muted);
+  font-size: 0.87rem;
+}
+
+.isro-news-list {
+  display: grid;
+  align-content: start;
+}
+
+.isro-news-item {
+  display: grid;
+  grid-template-columns: 53px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--isro-line);
+}
+
+.isro-news-item:first-child {
+  padding-top: 3px;
+}
+
+.isro-news-item__date {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  width: 53px;
+  height: 53px;
+  border-radius: 5px;
+  color: var(--isro-blue);
+  background: #eef5fb;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.isro-news-item__date strong {
+  color: var(--isro-navy);
+  font-size: 1rem;
+}
+
+.isro-news-item__copy small {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--isro-blue-bright);
+  font-size: 0.59rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.isro-news-item__copy a {
+  display: block;
+  color: var(--isro-ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.isro-news-item__copy a:hover {
+  color: var(--isro-blue);
+}
+
+.isro-highlights,
+.isro-missions {
+  color: var(--isro-white);
+  background: var(--isro-navy);
+}
+
+.isro-highlights__heading,
+.isro-missions__heading {
+  align-items: end;
+  margin-bottom: 27px;
+}
+
+.isro-highlights .isro-section__heading h2,
+.isro-missions .isro-section__heading h2 {
+  color: var(--isro-white);
+}
+
+.isro-highlights .isro-section__heading {
+  width: min(1240px, calc(100% - 48px));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.isro-card-track {
+  display: grid;
+  grid-auto-columns: minmax(245px, 1fr);
+  grid-auto-flow: column;
+  gap: 18px;
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+  overflow-x: auto;
+  padding: 2px 2px 15px;
+  scroll-behavior: smooth;
+  scrollbar-color: rgb(255 255 255 / 35%) transparent;
+  scrollbar-width: thin;
+  scroll-snap-type: x mandatory;
+}
+
+.isro-highlight-card {
+  position: relative;
+  min-height: 260px;
+  overflow: hidden;
+  border-radius: 9px;
+  background: #173a72;
+  scroll-snap-align: start;
+}
+
+.isro-highlight-card::after {
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(0deg, rgb(4 14 43 / 88%), transparent);
+  content: "";
+}
+
+.isro-highlight-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 450ms ease;
+}
+
+.isro-highlight-card:hover img {
+  transform: scale(1.045);
+}
+
+.isro-highlight-card__label {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  bottom: 19px;
+  left: 20px;
+  color: var(--isro-white);
+  font-family: Manrope, "DM Sans", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.isro-portals {
+  padding-top: 91px;
+  padding-bottom: 93px;
+}
+
+.isro-portal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.isro-portal-card {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  min-height: 100px;
+  padding: 14px 17px;
+  border: 1px solid var(--isro-line);
+  border-radius: 8px;
+  background: var(--isro-white);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.isro-portal-card:hover {
+  transform: translateY(-3px);
+  border-color: #b3cde4;
+  box-shadow: 0 12px 23px rgb(8 26 59 / 8%);
+}
+
+.isro-portal-card img {
+  width: 62px;
+  height: 62px;
+  flex: 0 0 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--isro-paper);
+}
+
+.isro-portal-card strong,
+.isro-portal-card small {
+  display: block;
+}
+
+.isro-portal-card strong {
+  color: var(--isro-ink);
+  font-family: Manrope, "DM Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.isro-portal-card small {
+  margin-top: 3px;
+  color: var(--isro-muted);
+  font-size: 0.7rem;
+}
+
+.isro-portal-card__arrow {
+  margin-left: auto;
+  color: var(--isro-blue);
+  font-weight: 800;
+}
+
+.isro-missions {
+  padding: 76px 0 88px;
+}
+
+.isro-missions__heading,
+.isro-mission-grid {
+  width: min(1240px, calc(100% - 48px));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.isro-mission-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.isro-mission-card {
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 17%);
+  border-radius: 8px;
+  background: #0a245d;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.isro-mission-card:hover {
+  transform: translateY(-4px);
+  border-color: rgb(255 230 0 / 70%);
+}
+
+.isro-mission-card > img {
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+}
+
+.isro-mission-card__body {
+  display: grid;
+  gap: 8px;
+  padding: 17px;
+}
+
+.isro-mission-card__body small {
+  color: var(--isro-gold);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.isro-mission-card__body strong {
+  min-height: 2.7em;
+  font-family: Manrope, "DM Sans", sans-serif;
+  font-size: 0.97rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.isro-mission-card__body > span {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(255 255 255 / 70%);
+  font-size: 0.7rem;
+}
+
+.isro-mission-card__body b {
+  color: var(--isro-gold);
+}
+
+.isro-contact {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+  gap: 50px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.isro-contact__copy > p:last-child {
+  max-width: 470px;
+  margin: 15px 0 0;
+  color: var(--isro-muted);
+  font-size: 0.92rem;
+}
+
+.isro-contact__links {
+  border-top: 1px solid var(--isro-line);
+}
+
+.isro-contact__links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 55px;
+  border-bottom: 1px solid var(--isro-line);
+  color: var(--isro-ink);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.isro-contact__links a b {
+  color: var(--isro-blue);
+  transition: transform 180ms ease;
+}
+
+.isro-contact__links a:hover b {
+  transform: translate(2px, -2px);
+}
+
+@keyframes isro-hero-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.055); }
+}
+
+@keyframes isro-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .isro-shortcut {
+    gap: 8px;
+    padding: 0 14px;
+    font-size: 0.75rem;
+  }
+
+  .isro-news__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .isro-news-feature {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .isro-news-feature__image-wrap {
+    height: 100%;
+    min-height: 270px;
+  }
+
+  .isro-portal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .isro-mission-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .isro-home {
+    font-size: 15px;
+  }
+
+  .isro-ticker__inner,
+  .isro-section,
+  .isro-hero__content,
+  .isro-highlights .isro-section__heading,
+  .isro-card-track,
+  .isro-missions__heading,
+  .isro-mission-grid {
+    width: calc(100% - 32px);
+  }
+
+  .isro-ticker__inner {
+    min-height: 60px;
+    gap: 10px;
+  }
+
+  .isro-ticker__label {
+    max-width: 68px;
+    font-size: 0.57rem;
+    line-height: 1.2;
+  }
+
+  .isro-ticker__link {
+    font-size: 0.7rem;
+    white-space: normal;
+  }
+
+  .isro-ticker__controls {
+    gap: 4px;
+  }
+
+  .isro-ticker__count {
+    display: none;
+  }
+
+  .isro-icon-button {
+    width: 31px;
+    height: 31px;
+  }
+
+  .isro-hero {
+    min-height: 475px;
+  }
+
+  .isro-hero__content {
+    padding-top: 80px;
+    padding-bottom: 105px;
+  }
+
+  .isro-hero__image {
+    object-position: 58% center;
+  }
+
+  .isro-hero__shade {
+    background:
+      linear-gradient(90deg, rgb(4 15 48 / 84%) 0%, rgb(4 15 48 / 54%) 78%, rgb(4 15 48 / 32%) 100%),
+      linear-gradient(0deg, rgb(4 15 48 / 58%), transparent 58%);
+  }
+
+  .isro-hero__summary {
+    max-width: 340px;
+    font-size: 0.95rem;
+  }
+
+  .isro-hero__caption {
+    right: 16px;
+    bottom: 17px;
+    font-size: 0.53rem;
+  }
+
+  .isro-hero__controls {
+    right: 16px;
+    bottom: 48px;
+  }
+
+  .isro-shortcuts {
+    grid-template-columns: repeat(2, 1fr);
+    width: calc(100% - 32px);
+    margin-top: -23px;
+  }
+
+  .isro-shortcut {
+    min-height: 60px;
+    padding: 0 12px;
+    font-size: 0.72rem;
+  }
+
+  .isro-shortcut:first-child {
+    border-radius: 8px 0 0 0;
+  }
+
+  .isro-shortcut:nth-child(2) {
+    border-radius: 0 8px 0 0;
+  }
+
+  .isro-shortcut:nth-child(3) {
+    border-left: 0;
+    border-radius: 0 0 0 8px;
+  }
+
+  .isro-shortcut:last-child {
+    border-radius: 0 0 8px 0;
+  }
+
+  .isro-shortcut:nth-child(n + 3) {
+    border-top: 1px solid rgb(255 255 255 / 18%);
+  }
+
+  .isro-shortcut__icon {
+    width: 27px;
+    height: 27px;
+    flex-basis: 27px;
+    font-size: 0.9rem;
+  }
+
+  .isro-shortcut__arrow {
+    display: none;
+  }
+
+  .isro-section {
+    padding-top: 67px;
+    padding-bottom: 67px;
+  }
+
+  .isro-section__heading {
+    align-items: start;
+    gap: 15px;
+  }
+
+  .isro-section__heading > .isro-text-link {
+    margin-top: 31px;
+    white-space: nowrap;
+  }
+
+  .isro-news__layout {
+    gap: 23px;
+  }
+
+  .isro-news-feature {
+    display: block;
+  }
+
+  .isro-news-feature__image-wrap {
+    height: 205px;
+    min-height: 0;
+  }
+
+  .isro-news-feature__copy {
+    padding: 19px;
+  }
+
+  .isro-news-item {
+    grid-template-columns: 45px 1fr;
+    gap: 12px;
+    padding: 14px 0;
+  }
+
+  .isro-news-item__date {
+    width: 45px;
+    height: 45px;
+  }
+
+  .isro-news-item__copy a {
+    font-size: 0.82rem;
+  }
+
+  .isro-highlights {
+    padding: 61px 0 68px;
+  }
+
+  .isro-highlight-card,
+  .isro-highlight-card img {
+    min-height: 230px;
+    height: 230px;
+  }
+
+  .isro-card-track {
+    grid-auto-columns: minmax(230px, 78vw);
+  }
+
+  .isro-portal-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .isro-portal-card {
+    min-height: 83px;
+    padding: 10px 13px;
+  }
+
+  .isro-portal-card img {
+    width: 54px;
+    height: 54px;
+    flex-basis: 54px;
+  }
+
+  .isro-missions {
+    padding: 62px 0 70px;
+  }
+
+  .isro-missions__heading {
+    align-items: start;
+  }
+
+  .isro-missions__heading .isro-button {
+    min-height: 39px;
+    gap: 7px;
+    margin-top: 21px;
+    padding: 0 10px;
+    font-size: 0.62rem;
+    white-space: nowrap;
+  }
+
+  .isro-mission-grid {
+    gap: 11px;
+  }
+
+  .isro-mission-card > img {
+    height: 130px;
+  }
+
+  .isro-mission-card__body {
+    gap: 7px;
+    padding: 12px;
+  }
+
+  .isro-mission-card__body strong {
+    min-height: 2.7em;
+    font-size: 0.79rem;
+  }
+
+  .isro-mission-card__body small {
+    font-size: 0.51rem;
+  }
+
+  .isro-mission-card__body > span {
+    font-size: 0.62rem;
+  }
+
+  .isro-contact {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .isro-home *,
+  .isro-home *::before,
+  .isro-home *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
